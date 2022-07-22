@@ -1,12 +1,13 @@
 <template>
-  <div class="">{{ obj }}</div>
+  <el-config-provider :locale="zhCn">
+    <router-view></router-view
+  ></el-config-provider>
 </template>
 
-// 来点注释，看看效果
 <script setup lang="ts">
-const obj = {
-  name: "why"
-};
+import { ElConfigProvider } from "element-plus";
+
+import zhCn from "element-plus/lib/locale/lang/zh-cn";
 </script>
 
 <style scoped lang="less"></style>
