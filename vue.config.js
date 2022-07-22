@@ -1,8 +1,8 @@
 // const path = require("path");
 
 module.exports = {
-  outputDir: "./build",
-  // publicPath: "./",
+  // outputDir: "./build",
+  publicPath: "./",
   // 该配置仅解决开发阶段的跨域请求
   // 项目上线想要解决跨域问题：
   // 1.找后端关闭CORS跨域访问限制
