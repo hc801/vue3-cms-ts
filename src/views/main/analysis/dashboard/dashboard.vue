@@ -46,10 +46,10 @@ import {
 } from "@/components/page-echarts";
 
 const store = useStore();
-store.dispatch("dashboard/getDashboardDataAction");
+store.dispatch("analysis/getDashboardDataAction");
 
 const categoryGoodsCount = computed(() => {
-  return store.state.dashboard.categoryGoodsCount.map((item: any) => {
+  return store.state.analysis.categoryGoodsCount.map((item: any) => {
     return { name: item.name, value: item.goodsCount };
   });
 });
@@ -57,7 +57,7 @@ const categoryGoodsSale = computed(() => {
   const xLabels: string[] = [];
   const values: any[] = [];
 
-  const categoryGoodsSale = store.state.dashboard.categoryGoodsSale;
+  const categoryGoodsSale = store.state.analysis.categoryGoodsSale;
 
   for (const item of categoryGoodsSale) {
     if (item.goodsCount && item.name) {
@@ -75,7 +75,7 @@ const categoryGoodsFavor = computed(() => {
   const xLabels: string[] = [];
   const values: any[] = [];
 
-  const categoryGoodsFavor = store.state.dashboard.categoryGoodsFavor;
+  const categoryGoodsFavor = store.state.analysis.categoryGoodsFavor;
 
   for (const item of categoryGoodsFavor) {
     if (item.goodsFavor && item.name) {
@@ -90,7 +90,7 @@ const categoryGoodsFavor = computed(() => {
   };
 });
 const addressGoodsSale = computed(() => {
-  return store.state.dashboard.addressGoodsSale.map((item: any) => {
+  return store.state.analysis.addressGoodsSale.map((item: any) => {
     return { name: item.address, value: item.count };
   });
 });

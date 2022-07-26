@@ -1,16 +1,14 @@
 <template>
-  <div class="hy-card">
-    <el-card class="box-card">
-      <template #header>
-        <div class="card-header">
-          <span>{{ title }}</span>
-        </div>
-      </template>
-      <div class="item">
-        <slot></slot>
+  <el-card class="box-card">
+    <template #header>
+      <div class="card-header">
+        <span>{{ title }}</span>
       </div>
-    </el-card>
-  </div>
+    </template>
+    <div class="item">
+      <slot></slot>
+    </div>
+  </el-card>
 </template>
 
 <script setup lang="ts">
@@ -34,6 +32,7 @@ defineProps({
   justify-content: space-between;
   align-items: center;
   height: 30px;
+  font-weight: 700;
 }
 
 .item {
