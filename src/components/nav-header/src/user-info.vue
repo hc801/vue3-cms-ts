@@ -1,33 +1,60 @@
 <template>
   <div class="user-info">
-    <el-dropdown :hide-on-click="false">
-      <span class="el-dropdown-link">
-        <el-avatar
-          size="small"
-          src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-        />
-        <span>{{ name }}</span>
+    <div class="operation">
+      <span>
+        <el-icon :size="20"><Bell /></el-icon>
       </span>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item @click="handleExitClick">
-            <el-icon><CircleClose /></el-icon>退出登录
-          </el-dropdown-item>
-          <el-dropdown-item divided>Action 6</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
+      <span>
+        <el-icon :size="20"><ChatDotRound /></el-icon>
+      </span>
+      <span>
+        <span class="dot"></span>
+        <el-icon :size="20"><Postcard /></el-icon>
+      </span>
+    </div>
+    <div class="info">
+      <el-dropdown :hide-on-click="false">
+        <span class="el-dropdown-link">
+          <el-avatar
+            size="small"
+            class="avatar"
+            src="https://portrait.gitee.com/uploads/avatars/user/2632/7898005_he_cong123_1658892025.png!avatar200"
+          />
+          <span>{{ name }}</span>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="handleExitClick">
+              <el-icon><CircleClose /></el-icon>退出登录
+            </el-dropdown-item>
+            <el-dropdown-item divided>
+              <el-icon><InfoFilled /></el-icon>个人信息
+            </el-dropdown-item>
+            <el-dropdown-item>
+              <el-icon><Lock /></el-icon>修改密码
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 import { useStore } from "@/store";
+import { useRouter } from "vue-router";
 
 import localCache from "@/utils/cache";
 
-import { CircleClose } from "@element-plus/icons-vue";
-import { useRouter } from "vue-router";
+import {
+  CircleClose,
+  InfoFilled,
+  Lock,
+  Bell,
+  ChatDotRound,
+  Postcard
+} from "@element-plus/icons-vue";
 
 const store = useStore();
 const name = computed(() => store.state.login.userInfo.name);
@@ -40,13 +67,50 @@ const handleExitClick = () => {
 </script>
 
 <style scoped lang="less">
-.el-dropdown-link {
+.user-info {
   display: flex;
   align-items: center;
-  cursor: pointer;
 
-  span {
-    margin-left: 5px;
+  .el-dropdown-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  .operation {
+    margin-right: 20px;
+
+    span {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 35px;
+      line-height: 40px;
+      cursor: pointer;
+
+      &:hover {
+        background: #f2f2f2;
+      }
+
+      .dot {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        width: 6px;
+        height: 6px;
+        background-color: red;
+        border-radius: 50%;
+      }
+    }
   }
 }
 </style>

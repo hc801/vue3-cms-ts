@@ -1,8 +1,8 @@
 <template>
   <div class="nav-header">
     <el-icon class="fold-menu" @click="handleFoldClick">
-      <template v-if="isFold"><Expand /></template>
-      <template v-else><Fold /></template>
+      <template v-if="isFold"><Fold /></template>
+      <template v-else><Expand /></template>
     </el-icon>
     <div class="content">
       <hy-breadcrumb :breadcrumbs="breadcrumbs"></hy-breadcrumb>
@@ -44,7 +44,9 @@ const breadcrumbs = computed(() => {
 <style scoped lang="less">
 .nav-header {
   display: flex;
+  align-items: center;
   width: 100%;
+
   .fold-menu {
     margin-right: 20px;
     font-size: 30px;
@@ -56,6 +58,7 @@ const breadcrumbs = computed(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 18px;
   }
 }
 </style>
