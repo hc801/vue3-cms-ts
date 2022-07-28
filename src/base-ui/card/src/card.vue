@@ -32,7 +32,6 @@ defineProps({
   justify-content: space-between;
   align-items: center;
   height: 30px;
-  font-weight: 700;
 }
 
 .item {

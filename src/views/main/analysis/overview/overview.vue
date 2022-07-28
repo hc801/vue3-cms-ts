@@ -63,5 +63,10 @@ import {
 }
 .el-card {
   margin-bottom: 20px;
+
+  &:deep(.el-card__header span) {
+    // ::v-deep .el-card__header span {
+    font-weight: 700;
+  }
 }
 </style>
