@@ -35,6 +35,7 @@ const options = computed(() => {
         }
       }
     },
+    legend: {},
     toolbox: {
       feature: {
         saveAsImage: {}
@@ -61,7 +62,7 @@ const options = computed(() => {
     ],
     series: [
       {
-        name: "类别销量",
+        name: "分类销量统计",
         type: "line",
         stack: "总量",
         areaStyle: {},

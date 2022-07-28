@@ -19,13 +19,6 @@ const props = defineProps<{
 const options = computed(() => {
   return {
     backgroundColor: "#fff",
-    title: {
-      text: "全国销量统计",
-      left: "center",
-      textStyle: {
-        color: "#fff"
-      }
-    },
     tooltip: {
       trigger: "item",
       formatter: function (params: any) {

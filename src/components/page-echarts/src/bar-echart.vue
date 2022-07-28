@@ -23,6 +23,9 @@ const props = withDefaults(
 
 const options = computed(() => {
   return {
+    title: {
+      text: "支持鼠标滚动缩放"
+    },
     xAxis: {
       data: props.xLabels,
       axisLabel: {
