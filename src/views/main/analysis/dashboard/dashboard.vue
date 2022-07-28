@@ -1,5 +1,14 @@
 <template>
   <div class="dashboard">
+    <!-- 1.顶部数据统计 -->
+    <el-row :gutter="10">
+      <template v-for="item in topPanelData" :key="item.title">
+        <el-col :md="12" :lg="6" :xl="6">
+          <statistical-panel :panelData="item"></statistical-panel>
+        </el-col>
+      </template>
+    </el-row>
+    <!-- 2.中间的图表 -->
     <el-row :gutter="10">
       <el-col :span="7">
         <hy-card title="分类商品数量（饼图）">
@@ -17,7 +26,8 @@
         </hy-card>
       </el-col>
     </el-row>
-    <el-row :gutter="10" class="content-row">
+    <!-- 3.底部的图表 -->
+    <el-row :gutter="10">
       <el-col :span="12">
         <hy-card title="分类商品的销量">
           <line-echart v-bind="categoryGoodsSale"></line-echart>
@@ -37,6 +47,7 @@ import { computed } from "vue";
 import { useStore } from "@/store";
 
 import HyCard from "@/base-ui/card";
+import StatisticalPanel from "@/components/statistical-panel";
 import {
   PieEchart,
   RoseEchart,
@@ -46,8 +57,9 @@ import {
 } from "@/components/page-echarts";
 
 const store = useStore();
-store.dispatch("analysis/getDashboardDataAction");
+store.dispatch("analysis/getAnalysisDataAction");
 
+const topPanelData = computed(() => store.state.analysis.topPanelData);
 const categoryGoodsCount = computed(() => {
   return store.state.analysis.categoryGoodsCount.map((item: any) => {
     return { name: item.name, value: item.goodsCount };
@@ -97,7 +109,11 @@ const addressGoodsSale = computed(() => {
 </script>
 
 <style scoped lang="less">
-.content-row {
-  margin-top: 10px;
+.dashboard {
+  background-color: #f5f5f5;
+
+  .el-row + .el-row {
+    margin-top: 20px;
+  }
 }
 </style>

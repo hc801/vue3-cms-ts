@@ -1,6 +1,7 @@
 import { Module } from "vuex";
 
 import {
+  getAmountList,
   getAddressGoodsSale,
   getCategoryGoodsCount,
   getCategoryGoodsFavor,
@@ -8,12 +9,13 @@ import {
 } from "@/service/main/analysis/analysis";
 
 import { IRootState } from "@/store/type";
-import { IDashboardState } from "./types";
+import { IAnalysisState } from "./types";
 
-const dashboardModule: Module<IDashboardState, IRootState> = {
+const dashboardModule: Module<IAnalysisState, IRootState> = {
   namespaced: true,
   state() {
     return {
+      topPanelData: [],
       categoryGoodsCount: [],
       categoryGoodsFavor: [],
       categoryGoodsSale: [],
@@ -21,6 +23,9 @@ const dashboardModule: Module<IDashboardState, IRootState> = {
     };
   },
   mutations: {
+    changeTopPanelData(state, list) {
+      state.topPanelData = list;
+    },
     changeCategoryGoodsCount(state, list) {
       state.categoryGoodsCount = list;
     },
@@ -35,11 +40,13 @@ const dashboardModule: Module<IDashboardState, IRootState> = {
     }
   },
   actions: {
-    async getDashboardDataAction({ commit }) {
+    async getAnalysisDataAction({ commit }) {
+      const topPanelDataResult = await getAmountList();
       const categoryCountResult = await getCategoryGoodsCount();
       const categorySaleResult = await getCategoryGoodsSale();
       const categoryFavorResult = await getCategoryGoodsFavor();
       const addressSaleResult = await getAddressGoodsSale();
+      commit("changeTopPanelData", topPanelDataResult.data);
       commit("changeCategoryGoodsCount", categoryCountResult.data);
       commit("changeCategoryGoodsSale", categorySaleResult.data);
       commit("changeCategoryGoodsFavor", categoryFavorResult.data);
