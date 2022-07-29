@@ -55,7 +55,9 @@
         :key="item.prop"
         #[item.slotName]="scope"
       >
-        <slot :name="item.slotName" :row="scope.row"></slot>
+        <div class="other-slots">
+          <slot :name="item.slotName" :row="scope.row"></slot>
+        </div>
       </template>
     </hy-table>
   </div>
@@ -155,14 +157,21 @@ defineExpose({
 .page-content {
   padding: 20px;
   border-top: 20px solid #f5f5f5;
-}
-.handle-btns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  .el-button + .el-button {
-    margin: 0 !important;
+  .handle-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .el-button + .el-button {
+      margin: 0 !important;
+    }
+  }
+
+  .other-slots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
