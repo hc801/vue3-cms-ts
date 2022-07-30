@@ -9,4 +9,6 @@ export interface ISystemState {
   menuCount: number;
   categoryList: any[];
   categoryCount: number;
+  storyList: any[];
+  storyCount: number;
 }

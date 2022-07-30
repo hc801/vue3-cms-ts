@@ -7,7 +7,11 @@
       v-model:page="pageInfo"
     >
       <template #headerHandler>
-        <el-button v-if="isCreate" type="primary" @click="handleNewClick">
+        <el-button
+          v-if="isCreate && isShowNewBtn"
+          type="primary"
+          @click="handleNewClick"
+        >
           {{ newBtnText }}
         </el-button>
       </template>
@@ -84,6 +88,10 @@ const props = defineProps({
   newBtnText: {
     type: String,
     default: ""
+  },
+  isShowNewBtn: {
+    type: Boolean,
+    default: true
   }
 });
 

@@ -23,7 +23,9 @@ const systemModule: Module<ISystemState, IRootState> = {
       menuList: [],
       menuCount: 0,
       categoryList: [],
-      categoryCount: 0
+      categoryCount: 0,
+      storyList: [],
+      storyCount: 0
     };
   },
   mutations: {
@@ -56,6 +58,12 @@ const systemModule: Module<ISystemState, IRootState> = {
     },
     changeCategoryCount(state, count: number) {
       state.categoryCount = count;
+    },
+    changeStoryList(state, list: any[]) {
+      state.storyList = list;
+    },
+    changeStoryCount(state, count: number) {
+      state.storyCount = count;
     }
   },
   getters: {
@@ -78,6 +86,7 @@ const systemModule: Module<ISystemState, IRootState> = {
 
       // 2.对页面发送请求
       const pageResult = await getPageListData(pageUrl, payload.queryInfo);
+      console.log(pageResult);
 
       const { list, totalCount } = pageResult.data;
 
