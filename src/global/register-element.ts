@@ -40,7 +40,8 @@ import {
   ElDescriptions,
   ElDescriptionsItem,
   ElTag,
-  ElTooltip
+  ElTooltip,
+  ElAlert
 } from "element-plus";
 
 const components = [
@@ -82,7 +83,8 @@ const components = [
   ElDescriptions,
   ElDescriptionsItem,
   ElTag,
-  ElTooltip
+  ElTooltip,
+  ElAlert
 ];
 
 export default function (app: App): void {
