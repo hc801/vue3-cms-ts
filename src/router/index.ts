@@ -1,4 +1,8 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  // createWebHistory,
+  createWebHashHistory
+} from "vue-router";
 import { RouteRecordRaw } from "vue-router";
 
 import localCache from "@/utils/cache";
@@ -23,7 +27,7 @@ const routes: RouteRecordRaw[] = [
   }
 ];
 
-const router = createRouter({ routes, history: createWebHistory() });
+const router = createRouter({ routes, history: createWebHashHistory() });
 
 router.beforeEach((to) => {
   if (to.path !== "/login") {
