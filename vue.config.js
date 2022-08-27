@@ -2,6 +2,7 @@
 
 module.exports = {
   // outputDir: "./build",
+  // 本地跑有问题，打包需要此选项
   // publicPath: "./",
   // 该配置仅解决开发阶段的跨域请求
   // 项目上线想要解决跨域问题：

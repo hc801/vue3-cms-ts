@@ -32,19 +32,27 @@ const store = createStore<IRootState>({
   actions: {
     async getInitialDataAction({ commit }) {
       // 1.请求部门和角色数据
-      const departmentResult = await getPageListData("/department/list", {
-        offset: 0,
-        size: 1000
-      });
+      const departmentResult = await getPageListData(
+        "/department/list",
+        {
+          offset: 0,
+          size: 1000
+        },
+        false
+      );
       const { list: departmentList } = departmentResult.data;
 
-      const roleResult = await getPageListData("/role/list", {
-        offset: 0,
-        size: 1000
-      });
+      const roleResult = await getPageListData(
+        "/role/list",
+        {
+          offset: 0,
+          size: 1000
+        },
+        false
+      );
       const { list: roleList } = roleResult.data;
 
-      const menuResult = await getPageListData("menu/list", {});
+      const menuResult = await getPageListData("menu/list", {}, false);
       const { list: menuList } = menuResult.data;
 
       // 2.保存数据

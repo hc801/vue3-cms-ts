@@ -18,7 +18,7 @@
           <el-avatar
             size="small"
             class="avatar"
-            src="https://portrait.gitee.com/uploads/avatars/user/2632/7898005_he_cong123_1658892025.png!avatar200"
+            src="https://avatars.githubusercontent.com/u/78576743?v=4"
           />
           <span>{{ name }}</span>
         </span>

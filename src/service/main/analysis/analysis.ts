@@ -12,29 +12,34 @@ enum AnalysisAPI {
 export function getAmountList() {
   return hyRequest.get<IDataType>({
     url: AnalysisAPI.amountList
+    // showLoading: false
   });
 }
 
 export function getCategoryGoodsCount() {
   return hyRequest.get<IDataType>({
-    url: AnalysisAPI.categoryGoodsCount
+    url: AnalysisAPI.categoryGoodsCount,
+    showLoading: false
   });
 }
 
 export function getCategoryGoodsSale() {
   return hyRequest.get<IDataType>({
-    url: AnalysisAPI.categoryGoodsSale
+    url: AnalysisAPI.categoryGoodsSale,
+    showLoading: false
   });
 }
 
 export function getCategoryGoodsFavor() {
   return hyRequest.get<IDataType>({
-    url: AnalysisAPI.categoryGoodsFavor
+    url: AnalysisAPI.categoryGoodsFavor,
+    showLoading: false
   });
 }
 
 export function getAddressGoodsSale() {
   return hyRequest.get<IDataType>({
-    url: AnalysisAPI.addressGoodsSale
+    url: AnalysisAPI.addressGoodsSale,
+    showLoading: false
   });
 }

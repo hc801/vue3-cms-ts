@@ -11,7 +11,7 @@ class HYRequest {
   instance: AxiosInstance;
   interceptors?: HYRequestInterceptors;
   loading?: any;
-  showLoading: boolean;
+  showLoading?: boolean;
 
   constructor(config: HYRequestConfig) {
     this.instance = axios.create(config);

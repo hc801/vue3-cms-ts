@@ -2,10 +2,15 @@ import hyRequest from "@/service";
 
 import { IDataType } from "@/service/types";
 
-export function getPageListData(url: string, queryInfo: any) {
+export function getPageListData(
+  url: string,
+  queryInfo: any,
+  showLoading = true
+) {
   return hyRequest.post<IDataType>({
     url,
-    data: queryInfo
+    data: queryInfo,
+    showLoading
   });
 }
 
