@@ -27,7 +27,7 @@
         v-if="showIndexColumn"
         label="序号"
         align="center"
-        width="80"
+        width="60"
       ></el-table-column>
       <template v-for="propItem in propList" :key="propItem.prop">
         <el-table-column v-bind="propItem" align="center" show-overflow-tooltip>
@@ -84,7 +84,7 @@ const props = defineProps({
   },
   page: {
     type: Object,
-    default: () => ({ currentPage: 0, pageSize: 10 })
+    default: () => ({ currentPage: 1, pageSize: 10 })
   },
   childrenProps: {
     type: Object,

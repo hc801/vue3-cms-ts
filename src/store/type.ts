@@ -1,5 +1,5 @@
 import { ILoginState } from "./login/type";
-import { IDashboardState } from "./main/analysis/types";
+import { IAnalysisState } from "./main/analysis/types";
 import { ISystemState } from "./main/system/types";
 
 export interface IRootState {
@@ -13,7 +13,7 @@ export interface IRootState {
 export interface IRootWithModule {
   login: ILoginState;
   system: ISystemState;
-  analysis: IDashboardState;
+  analysis: IAnalysisState;
 }
 
 export type IStoreType = IRootState & IRootWithModule;

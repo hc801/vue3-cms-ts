@@ -2,8 +2,8 @@
   <div class="page-content">
     <hy-table
       :listData="dataList"
-      v-bind="contentTableConfig"
       :listCount="dataCount"
+      v-bind="contentTableConfig"
       v-model:page="pageInfo"
     >
       <template #headerHandler>
